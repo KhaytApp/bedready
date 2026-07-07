@@ -21,12 +21,13 @@ permissions:
 
 jobs:
   build:
+    # macOS is built + Developer ID-signed locally (CI runners have no signing
+    # cert, and would overwrite the signed .dmg with an unsigned one). CI only
+    # builds the platforms that need no signing: Windows + Linux.
     strategy:
       fail-fast: false
       matrix:
         include:
-          - os: macos-14
-            script: "dist:bedready:mac:arm64"
           - os: windows-latest
             script: "dist:bedready:win"
           - os: ubuntu-latest
