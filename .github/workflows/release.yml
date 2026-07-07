@@ -65,3 +65,5 @@ jobs:
             build-bedready/*.exe
             build-bedready/*.AppImage
             build-bedready/*.deb
+
+# release pipeline for the Bed Ready public beta
