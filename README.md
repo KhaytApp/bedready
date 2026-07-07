@@ -22,9 +22,8 @@ All installers are also on the **[Releases page](https://github.com/KhaytApp/bed
 
 ## Installing
 
-**macOS** — the app is **signed with a Developer ID** but **not yet notarized**, so the
-first launch needs one extra step: open the `.dmg`, drag **Bed Ready** to Applications,
-then **right-click** the app → **Open** → **Open** (only needed once).
+**macOS** — the app is **signed and notarized by Apple**: just open the `.dmg` and drag
+**Bed Ready** to Applications. No Gatekeeper prompts.
 
 **Windows** — run the **Setup** installer, or use the **portable** `.exe` (no install).
 SmartScreen may warn on an unsigned beta → **More info** → **Run anyway**.
