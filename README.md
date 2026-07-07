@@ -22,14 +22,9 @@ All installers are also on the **[Releases page](https://github.com/KhaytApp/bed
 
 ## Installing
 
-**macOS** — this beta is **not notarized**, so Gatekeeper will complain the first time.
-Open the `.dmg`, drag **Bed Ready** to Applications, then either:
-
-- **Right-click** the app → **Open** → **Open** (only needed once), or
-- if it says *“damaged / can’t be opened”*, clear the download quarantine:
-  ```bash
-  xattr -dr com.apple.quarantine "/Applications/Bed Ready.app"
-  ```
+**macOS** — the app is **signed with a Developer ID** but **not yet notarized**, so the
+first launch needs one extra step: open the `.dmg`, drag **Bed Ready** to Applications,
+then **right-click** the app → **Open** → **Open** (only needed once).
 
 **Windows** — run the **Setup** installer, or use the **portable** `.exe` (no install).
 SmartScreen may warn on an unsigned beta → **More info** → **Run anyway**.
