@@ -15,8 +15,8 @@ every print. It works alongside your existing slicer — it doesn’t replace it
 | **macOS** (Apple Silicon) | [BedReady-1.0.0-beta.1-mac-arm64.dmg](https://github.com/KhaytApp/bedready/releases/download/bedready-v1.0.0-beta.1/BedReady-1.0.0-beta.1-mac-arm64.dmg) |
 | **Windows** (installer) | [BedReady-1.0.0-beta.1-win-x64-Setup.exe](https://github.com/KhaytApp/bedready/releases/download/bedready-v1.0.0-beta.1/BedReady-1.0.0-beta.1-win-x64-Setup.exe) |
 | **Windows** (portable) | [BedReady-1.0.0-beta.1-win-x64-portable.exe](https://github.com/KhaytApp/bedready/releases/download/bedready-v1.0.0-beta.1/BedReady-1.0.0-beta.1-win-x64-portable.exe) |
-| **Linux** (AppImage) | [BedReady-1.0.0-beta.1-linux-x64.AppImage](https://github.com/KhaytApp/bedready/releases/download/bedready-v1.0.0-beta.1/BedReady-1.0.0-beta.1-linux-x64.AppImage) |
-| **Linux** (.deb) | see the [latest release](https://github.com/KhaytApp/bedready/releases/latest) |
+| **Linux** (AppImage) | [BedReady-1.0.0-beta.1-linux-x86_64.AppImage](https://github.com/KhaytApp/bedready/releases/download/bedready-v1.0.0-beta.1/BedReady-1.0.0-beta.1-linux-x86_64.AppImage) |
+| **Linux** (.deb) | [BedReady-1.0.0-beta.1-linux-amd64.deb](https://github.com/KhaytApp/bedready/releases/download/bedready-v1.0.0-beta.1/BedReady-1.0.0-beta.1-linux-amd64.deb) |
 
 All installers are also on the **[Releases page](https://github.com/KhaytApp/bedready/releases/latest)**.
 
