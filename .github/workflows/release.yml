@@ -66,5 +66,8 @@ jobs:
             build-bedready/*.exe
             build-bedready/*.AppImage
             build-bedready/*.deb
+            build-bedready/*.zip
+            build-bedready/*.blockmap
+            build-bedready/latest*.yml
 
 # release pipeline for the Bed Ready public beta
