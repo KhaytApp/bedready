@@ -1,0 +1,67 @@
+name: Build & release Bed Ready
+
+# Builds the Bed Ready flavor from the (public) KhaytApp/Khayt source on each
+# runner OS and publishes the installers to a GitHub Release in THIS repo.
+# Trigger manually from the Actions tab.
+
+on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: "KhaytApp/Khayt git ref (branch/tag/sha) to build"
+        default: "bedready/phase-1-app-shell"
+        required: true
+      version:
+        description: "Bed Ready version (no leading v)"
+        default: "1.0.0-beta.1"
+        required: true
+
+permissions:
+  contents: write   # create/update the Release in this repo
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: macos-14
+            script: "dist:bedready:mac:arm64"
+          - os: windows-latest
+            script: "dist:bedready:win"
+          - os: ubuntu-latest
+            script: "dist:bedready:linux"
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Check out Khayt source (public)
+        uses: actions/checkout@v4
+        with:
+          repository: KhaytApp/Khayt
+          ref: ${{ github.event.inputs.ref }}
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Bed Ready (${{ matrix.os }})
+        shell: bash
+        env:
+          BEDREADY_VERSION: ${{ github.event.inputs.version }}
+          CSC_IDENTITY_AUTO_DISCOVERY: "false"   # unsigned public beta
+        run: npm run ${{ matrix.script }}
+
+      - name: Publish installers to the Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: "bedready-v${{ github.event.inputs.version }}"
+          prerelease: true
+          fail_on_unmatched_files: false
+          files: |
+            build-bedready/*.dmg
+            build-bedready/*.exe
+            build-bedready/*.AppImage
+            build-bedready/*.deb
