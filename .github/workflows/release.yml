@@ -9,7 +9,7 @@ on:
     inputs:
       ref:
         description: "KhaytApp/Khayt git ref (branch/tag/sha) to build"
-        default: "bedready/phase-1-app-shell"
+        default: "main"
         required: true
       version:
         description: "Bed Ready version (no leading v)"
@@ -52,8 +52,35 @@ jobs:
         shell: bash
         env:
           BEDREADY_VERSION: ${{ github.event.inputs.version }}
-          CSC_IDENTITY_AUTO_DISCOVERY: "false"   # unsigned public beta
+          CSC_IDENTITY_AUTO_DISCOVERY: "false"   # macOS Developer ID auto-discovery off
+          # ── Windows code signing (Path B: .pfx / eSigner) ─────────────────────
+          # No-op until these secrets exist in this repo: an empty value is falsy,
+          # so electron-builder builds unsigned exactly as before. Set both to sign
+          # the Windows .exe (feed hashes are then computed over the signed bytes).
+          # See docs/WINDOWS-SIGNING.md in KhaytApp/Khayt for how to obtain a cert.
+          WIN_CSC_LINK: ${{ secrets.WIN_CSC_LINK }}
+          WIN_CSC_KEY_PASSWORD: ${{ secrets.WIN_CSC_KEY_PASSWORD }}
         run: npm run ${{ matrix.script }}
+
+      # ── Windows code signing (Path A: Azure Trusted Signing — recommended) ──────
+      # Preferred over Path B: cloud HSM, no USB token, CI-native. Uncomment and add
+      # the AZURE_* secrets (see docs/WINDOWS-SIGNING.md). NOTE: this signs AFTER
+      # electron-builder has already hashed latest.yml, so you MUST re-hash the feed
+      # afterward or the auto-updater will reject the signed .exe with a sha512
+      # mismatch. The cleaner long-term route is an electron-builder `win.sign` hook
+      # so hashing always happens post-signing — prefer that when adopting Path A.
+      # - name: Sign Windows binaries (Azure Trusted Signing)
+      #   if: matrix.os == 'windows-latest' && env.AZURE_CLIENT_ID != ''
+      #   uses: azure/trusted-signing-action@v0
+      #   with:
+      #     azure-tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+      #     azure-client-id: ${{ secrets.AZURE_CLIENT_ID }}
+      #     azure-client-secret: ${{ secrets.AZURE_CLIENT_SECRET }}
+      #     endpoint: ${{ secrets.AZURE_TS_ENDPOINT }}
+      #     trusted-signing-account-name: ${{ secrets.AZURE_TS_ACCOUNT }}
+      #     certificate-profile-name: ${{ secrets.AZURE_TS_PROFILE }}
+      #     files-folder: build-bedready
+      #     files-folder-filter: exe
 
       - name: Publish installers to the Release
         uses: softprops/action-gh-release@v2
