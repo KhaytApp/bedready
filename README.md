@@ -8,7 +8,7 @@ every print. It works alongside your existing slicer — it doesn’t replace it
 > This repo hosts the **downloads only**; the source lives in
 > [KhaytApp/Khayt](https://github.com/KhaytApp/Khayt) (source-available, FSL-1.1-Apache-2.0).
 
-## Download (latest beta: v1.0.0-beta.5)
+## Download (latest beta: v1.0.0-beta.6)
 
 > **Bed Ready updates itself from beta.3 onward** — it checks on launch and from
 > **Settings → Check for updates**, so beta.3 users get this build automatically.
@@ -17,11 +17,11 @@ every print. It works alongside your existing slicer — it doesn’t replace it
 
 | Platform | File |
 |---|---|
-| **macOS** (Apple Silicon) | [BedReady-1.0.0-beta.5-mac-arm64.dmg](https://github.com/KhaytApp/bedready/releases/download/bedready-v1.0.0-beta.5/BedReady-1.0.0-beta.5-mac-arm64.dmg) |
-| **Windows** (installer) | [BedReady-1.0.0-beta.5-win-x64-Setup.exe](https://github.com/KhaytApp/bedready/releases/download/bedready-v1.0.0-beta.5/BedReady-1.0.0-beta.5-win-x64-Setup.exe) |
-| **Windows** (portable) | [BedReady-1.0.0-beta.5-win-x64-portable.exe](https://github.com/KhaytApp/bedready/releases/download/bedready-v1.0.0-beta.5/BedReady-1.0.0-beta.5-win-x64-portable.exe) |
-| **Linux** (AppImage) | [BedReady-1.0.0-beta.5-linux-x86_64.AppImage](https://github.com/KhaytApp/bedready/releases/download/bedready-v1.0.0-beta.5/BedReady-1.0.0-beta.5-linux-x86_64.AppImage) |
-| **Linux** (.deb) | [BedReady-1.0.0-beta.5-linux-amd64.deb](https://github.com/KhaytApp/bedready/releases/download/bedready-v1.0.0-beta.5/BedReady-1.0.0-beta.5-linux-amd64.deb) |
+| **macOS** (Apple Silicon) | [BedReady-1.0.0-beta.6-mac-arm64.dmg](https://github.com/KhaytApp/bedready/releases/download/bedready-v1.0.0-beta.6/BedReady-1.0.0-beta.6-mac-arm64.dmg) |
+| **Windows** (installer) | [BedReady-1.0.0-beta.6-win-x64-Setup.exe](https://github.com/KhaytApp/bedready/releases/download/bedready-v1.0.0-beta.6/BedReady-1.0.0-beta.6-win-x64-Setup.exe) |
+| **Windows** (portable) | [BedReady-1.0.0-beta.6-win-x64-portable.exe](https://github.com/KhaytApp/bedready/releases/download/bedready-v1.0.0-beta.6/BedReady-1.0.0-beta.6-win-x64-portable.exe) |
+| **Linux** (AppImage) | [BedReady-1.0.0-beta.6-linux-x86_64.AppImage](https://github.com/KhaytApp/bedready/releases/download/bedready-v1.0.0-beta.6/BedReady-1.0.0-beta.6-linux-x86_64.AppImage) |
+| **Linux** (.deb) | [BedReady-1.0.0-beta.6-linux-amd64.deb](https://github.com/KhaytApp/bedready/releases/download/bedready-v1.0.0-beta.6/BedReady-1.0.0-beta.6-linux-amd64.deb) |
 
 All installers are also on the **[Releases page](https://github.com/KhaytApp/bedready/releases/latest)**.
 
