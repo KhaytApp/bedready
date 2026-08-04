@@ -33,6 +33,10 @@ jobs:
           - os: ubuntu-latest
             script: "dist:bedready:linux"
     runs-on: ${{ matrix.os }}
+    # Job-level so the signing steps' `if:` can test it. A step-level env is not
+    # visible to that step's own `if`, which is why this lives up here.
+    env:
+      AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
     steps:
       - name: Check out Khayt source (public)
         uses: actions/checkout@v4
@@ -63,24 +67,32 @@ jobs:
         run: npm run ${{ matrix.script }}
 
       # ── Windows code signing (Path A: Azure Trusted Signing — recommended) ──────
-      # Preferred over Path B: cloud HSM, no USB token, CI-native. Uncomment and add
-      # the AZURE_* secrets (see docs/WINDOWS-SIGNING.md). NOTE: this signs AFTER
-      # electron-builder has already hashed latest.yml, so you MUST re-hash the feed
-      # afterward or the auto-updater will reject the signed .exe with a sha512
-      # mismatch. The cleaner long-term route is an electron-builder `win.sign` hook
-      # so hashing always happens post-signing — prefer that when adopting Path A.
-      # - name: Sign Windows binaries (Azure Trusted Signing)
-      #   if: matrix.os == 'windows-latest' && env.AZURE_CLIENT_ID != ''
-      #   uses: azure/trusted-signing-action@v0
-      #   with:
-      #     azure-tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-      #     azure-client-id: ${{ secrets.AZURE_CLIENT_ID }}
-      #     azure-client-secret: ${{ secrets.AZURE_CLIENT_SECRET }}
-      #     endpoint: ${{ secrets.AZURE_TS_ENDPOINT }}
-      #     trusted-signing-account-name: ${{ secrets.AZURE_TS_ACCOUNT }}
-      #     certificate-profile-name: ${{ secrets.AZURE_TS_PROFILE }}
-      #     files-folder: build-bedready
-      #     files-folder-filter: exe
+      # Live, but skipped entirely until the AZURE_* secrets exist in this repo, so
+      # today's builds are byte-identical to the unsigned ones. See
+      # docs/WINDOWS-SIGNING.md in KhaytApp/Khayt for what to create.
+      - name: Sign Windows binaries (Azure Trusted Signing)
+        if: matrix.os == 'windows-latest' && env.AZURE_CLIENT_ID != ''
+        uses: azure/trusted-signing-action@v0
+        with:
+          azure-tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          azure-client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          azure-client-secret: ${{ secrets.AZURE_CLIENT_SECRET }}
+          endpoint: ${{ secrets.AZURE_TS_ENDPOINT }}
+          trusted-signing-account-name: ${{ secrets.AZURE_TS_ACCOUNT }}
+          certificate-profile-name: ${{ secrets.AZURE_TS_PROFILE }}
+          files-folder: build-bedready
+          files-folder-filter: exe
+
+      # MUST follow the signing step. Signing rewrites the .exe, but latest.yml was
+      # hashed by electron-builder BEFORE that, so the feed now describes bytes that
+      # no longer exist and electron-updater rejects the download as a sha512
+      # mismatch — a failure that reaches users mid-update, never CI. The script
+      # exits non-zero if it matches no artifact, so a wrong path fails the release
+      # instead of shipping a stale feed.
+      - name: Re-hash the update feed over the signed binaries
+        if: matrix.os == 'windows-latest' && env.AZURE_CLIENT_ID != ''
+        shell: bash
+        run: node scripts/repatch-update-feed.mjs build-bedready/latest.yml
 
       - name: Publish installers to the Release
         uses: softprops/action-gh-release@v2
