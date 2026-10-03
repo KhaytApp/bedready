@@ -4,24 +4,22 @@
 files, preview them in 3D, retarget any model to the printer you own, plan colours, and cost
 every print. It works alongside your existing slicer — it doesn’t replace it.
 
-> **Public beta.** Expect rough edges, keep backups, and send feedback at **https://bedready.io**.
+> Send feedback at **https://bedready.io**.
 > This repo hosts the **downloads only**; the source lives in
 > [KhaytApp/Khayt](https://github.com/KhaytApp/Khayt) (source-available, FSL-1.1-Apache-2.0).
 
-## Download (latest beta: v1.0.0-beta.7)
+## Download (latest: v1.2.0)
 
-> **Bed Ready updates itself from beta.3 onward** — it checks on launch and from
-> **Settings → Check for updates**, so beta.3 users get this build automatically.
-> Only beta.1 / beta.2 need a one-time manual install (the updater fix ships inside
-> the app).
+> **Bed Ready updates itself** — it checks on launch and from
+> **Settings → Check for updates**, so you only need to download it once.
 
 | Platform | File |
 |---|---|
-| **macOS** (Apple Silicon) | [BedReady-1.0.0-beta.7-mac-arm64.dmg](https://github.com/KhaytApp/bedready/releases/download/bedready-v1.0.0-beta.7/BedReady-1.0.0-beta.7-mac-arm64.dmg) |
-| **Windows** (installer) | [BedReady-1.0.0-beta.7-win-x64-Setup.exe](https://github.com/KhaytApp/bedready/releases/download/bedready-v1.0.0-beta.7/BedReady-1.0.0-beta.7-win-x64-Setup.exe) |
-| **Windows** (portable) | [BedReady-1.0.0-beta.7-win-x64-portable.exe](https://github.com/KhaytApp/bedready/releases/download/bedready-v1.0.0-beta.7/BedReady-1.0.0-beta.7-win-x64-portable.exe) |
-| **Linux** (AppImage) | [BedReady-1.0.0-beta.7-linux-x86_64.AppImage](https://github.com/KhaytApp/bedready/releases/download/bedready-v1.0.0-beta.7/BedReady-1.0.0-beta.7-linux-x86_64.AppImage) |
-| **Linux** (.deb) | [BedReady-1.0.0-beta.7-linux-amd64.deb](https://github.com/KhaytApp/bedready/releases/download/bedready-v1.0.0-beta.7/BedReady-1.0.0-beta.7-linux-amd64.deb) |
+| **macOS** (Apple Silicon) | [BedReady-1.2.0-mac-arm64.dmg](https://github.com/KhaytApp/bedready/releases/download/bedready-v1.2.0/BedReady-1.2.0-mac-arm64.dmg) |
+| **Windows** (installer) | [BedReady-1.2.0-win-x64-Setup.exe](https://github.com/KhaytApp/bedready/releases/download/bedready-v1.2.0/BedReady-1.2.0-win-x64-Setup.exe) |
+| **Windows** (portable) | [BedReady-1.2.0-win-x64-portable.exe](https://github.com/KhaytApp/bedready/releases/download/bedready-v1.2.0/BedReady-1.2.0-win-x64-portable.exe) |
+| **Linux** (AppImage) | [BedReady-1.2.0-linux-x86_64.AppImage](https://github.com/KhaytApp/bedready/releases/download/bedready-v1.2.0/BedReady-1.2.0-linux-x86_64.AppImage) |
+| **Linux** (.deb) | [BedReady-1.2.0-linux-amd64.deb](https://github.com/KhaytApp/bedready/releases/download/bedready-v1.2.0/BedReady-1.2.0-linux-amd64.deb) |
 
 All installers are also on the **[Releases page](https://github.com/KhaytApp/bedready/releases/latest)**.
 
@@ -38,7 +36,7 @@ SmartScreen may warn on an unsigned beta → **More info** → **Run anyway**.
 
 ## For the website (bedready.io)
 
-Link the buttons to the URLs in the table above. When a new beta ships, the version in
+Link the buttons to the URLs in the table above. When a new version ships, the version in
 each filename changes — either update the links, or link to
 `https://github.com/KhaytApp/bedready/releases/latest` and let visitors pick the newest.
 
