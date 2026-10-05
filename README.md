@@ -44,3 +44,11 @@ each filename changes — either update the links, or link to
 
 Not affiliated with, sponsored by, or endorsed by Snapmaker, Bambu Lab, Prusa, Creality,
 UltiMaker or any other maker; product names are used only to describe compatibility.
+
+## For maintainers: how a release is made
+
+Releases are **not** built in this repo. They are built from
+[KhaytApp/Khayt](https://github.com/KhaytApp/Khayt) by its `Build & Release` workflow
+(run it from the Actions tab with a `bedready_version`, e.g. `1.3.0`), which publishes the
+installers and update feeds here as the `bedready-vX.Y.Z` release. See `VERSIONING.md` →
+"Bed Ready" in that repo. This repo only holds the downloads and this page.
