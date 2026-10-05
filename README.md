@@ -8,25 +8,26 @@ every print. It works alongside your existing slicer — it doesn’t replace it
 > This repo hosts the **downloads only**; the source lives in
 > [KhaytApp/Khayt](https://github.com/KhaytApp/Khayt) (source-available, FSL-1.1-Apache-2.0).
 
-## Download (latest: v1.2.0)
+## Download (latest: v1.3.0)
 
 > **Bed Ready updates itself** — it checks on launch and from
 > **Settings → Check for updates**, so you only need to download it once.
 
 | Platform | File |
 |---|---|
-| **macOS** (Apple Silicon) | [BedReady-1.2.0-mac-arm64.dmg](https://github.com/KhaytApp/bedready/releases/download/bedready-v1.2.0/BedReady-1.2.0-mac-arm64.dmg) |
-| **Windows** (installer) | [BedReady-1.2.0-win-x64-Setup.exe](https://github.com/KhaytApp/bedready/releases/download/bedready-v1.2.0/BedReady-1.2.0-win-x64-Setup.exe) |
-| **Windows** (portable) | [BedReady-1.2.0-win-x64-portable.exe](https://github.com/KhaytApp/bedready/releases/download/bedready-v1.2.0/BedReady-1.2.0-win-x64-portable.exe) |
-| **Linux** (AppImage) | [BedReady-1.2.0-linux-x86_64.AppImage](https://github.com/KhaytApp/bedready/releases/download/bedready-v1.2.0/BedReady-1.2.0-linux-x86_64.AppImage) |
-| **Linux** (.deb) | [BedReady-1.2.0-linux-amd64.deb](https://github.com/KhaytApp/bedready/releases/download/bedready-v1.2.0/BedReady-1.2.0-linux-amd64.deb) |
+| **macOS** (Apple Silicon) | [BedReady-1.3.0-mac-arm64.dmg](https://github.com/KhaytApp/bedready/releases/download/bedready-v1.3.0/BedReady-1.3.0-mac-arm64.dmg) |
+| **Windows** (installer) | [BedReady-1.3.0-win-x64-Setup.exe](https://github.com/KhaytApp/bedready/releases/download/bedready-v1.3.0/BedReady-1.3.0-win-x64-Setup.exe) |
+| **Windows** (portable) | [BedReady-1.3.0-win-x64-portable.exe](https://github.com/KhaytApp/bedready/releases/download/bedready-v1.3.0/BedReady-1.3.0-win-x64-portable.exe) |
+| **Linux** (AppImage) | [BedReady-1.3.0-linux-x86_64.AppImage](https://github.com/KhaytApp/bedready/releases/download/bedready-v1.3.0/BedReady-1.3.0-linux-x86_64.AppImage) |
+| **Linux** (.deb) | [BedReady-1.3.0-linux-amd64.deb](https://github.com/KhaytApp/bedready/releases/download/bedready-v1.3.0/BedReady-1.3.0-linux-amd64.deb) |
 
 All installers are also on the **[Releases page](https://github.com/KhaytApp/bedready/releases/latest)**.
 
 ## Installing
 
 **macOS** — the app is **signed and notarized by Apple**: just open the `.dmg` and drag
-**Bed Ready** to Applications. No Gatekeeper prompts.
+**Bed Ready** to Applications. No Gatekeeper prompts. Needs **macOS 13 (Ventura) or later**
+(on macOS 12, stay on [1.2.0](https://github.com/KhaytApp/bedready/releases/tag/bedready-v1.2.0)).
 
 **Windows** — run the **Setup** installer, or use the **portable** `.exe` (no install).
 SmartScreen may warn on an unsigned beta → **More info** → **Run anyway**.
